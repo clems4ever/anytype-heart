@@ -77,11 +77,7 @@ func init() {
 
 	SetVersion(info.Version())
 
-	if os.Getenv("ANYTYPE_LOG_NOGELF") == "1" {
-		cfg.Format = logger.ColorizedOutput
-	} else {
-		registerGelfSink(&cfg)
-	}
+	cfg.Format = logger.ColorizedOutput
 	logLevels := os.Getenv("ANYTYPE_LOG_LEVEL")
 	if logLevels == "" {
 		logLevels = DefaultLogLevels
