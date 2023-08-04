@@ -128,7 +128,6 @@ func (c *client) Run() {
 	c.batcher = mb.New(0)
 	c.closeChannel = make(chan struct{})
 	go c.startAggregating()
-	go c.startSendingBatchMessages()
 }
 
 func (c *client) startAggregating() {
